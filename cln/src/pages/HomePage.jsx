@@ -36,15 +36,9 @@ const HomePage = () => {
     <>
       <Box>
         {!loading && posts.length === 0 && (
-          <Center
-            color="white"
-            width={"650px"}
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            <h1>Follow some users to see the feed</h1>
-          </Center>
+          <Box width={"100%"} m={"15px"} color={"purple"}>
+            <h1>Follow some users to see the feed.</h1>
+          </Box>
         )}
 
         {loading && (
