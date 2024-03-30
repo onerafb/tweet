@@ -1,10 +1,12 @@
 import { useSetRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 import useShowToast from "./useShowToast";
+import { useNavigate } from "react-router-dom";
 
 const useLogout = () => {
   const setUser = useSetRecoilState(userAtom);
   const showToast = useShowToast();
+  const navigate = useNavigate();
 
   const logout = async () => {
     try {
@@ -24,6 +26,7 @@ const useLogout = () => {
 
       localStorage.removeItem("user-threads");
       setUser(null);
+      navigate("/auth");
     } catch (error) {
       showToast("Error", error.message, "error");
     }
